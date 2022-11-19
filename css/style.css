@@ -1,0 +1,79 @@
+body {
+  background-color:#f6f5ff;
+  background-image: url("https://uploads-ssl.webflow.com/5f7c29021be3c410facedbf1/5fd7597fe589fae49c1235ca_bg5.svg");
+}
+
+/* This is the text for the typwritter */
+* { color:#30265d; text-decoration: none;}
+
+/* Hi im jack */
+.intro{
+  text-align: center;
+  padding-top: 8%;
+  font-size: 100px;
+  animation: intro 1s ease-out;
+}
+
+/* typwritter thing */
+.typewrite{
+  text-align: center;
+  padding-left: 33%;
+  font-size: 80px;
+}
+
+@keyframes intro {
+  0%   { 
+  transform: translateY(-100%); 		
+  }
+  100% { 
+  transform: translateY(0%); 
+  }
+ }
+
+/* navlinks */
+.nav_links{
+  padding-top: 2%;
+  text-align: right;
+  display: flex;
+  justify-content:space-around;
+  list-style-type: none;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+/* what you see when you start scrollling */
+#part2{
+  padding-top: 20%;
+  text-align: center;
+  font-size: 30px;
+}
+
+.about_me{
+  padding-top: 1%;
+}
+
+.projects{
+  padding-top: 1%;
+}
+
+/* Only for nav when home tab isnt the logo */
+.home{
+  padding-top: 1%;
+}
+
+footer{
+  text-align: center;
+  padding-top: 20%;
+}
+
+.skip-content{
+  background: #e77e23;
+  height: 20px;
+  left: 50%;
+  padding: 8px;
+  position: absolute;
+  transform: translateY(-150%);
+  transition: transform 0.3s;
+}
+
+
