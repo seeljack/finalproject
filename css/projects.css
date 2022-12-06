@@ -47,13 +47,21 @@ body {
   }
 
   .skip-content{
-    background: white;
-    height: 20px;
-    left: 50%;
-    padding: 8px;
+    left: -10000px;
+    top: auto;
+    width: 1px;
     position: absolute;
-    transform: translateY(-250%);
-    transition: transform 0.3s;
+    overflow: hidden;
+  }
+  
+  /* this will run when it is tabed */
+  .skip-content:focus{
+    margin-left:  48%;
+    margin-top: 50px;
+    border: rgb(0, 0, 0) 5px solid;
+    padding: 5px;
+    position: static;
+    overflow: visible;
   }
 
   /* my projects text */
