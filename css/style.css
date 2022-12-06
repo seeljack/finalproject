@@ -1,3 +1,14 @@
+/* navlinks */
+.nav_links{
+  padding-top: 2%;
+  text-align: right;
+  display: flex;
+  justify-content:space-around;
+  list-style-type: none;
+  font-size: 30px;
+  text-decoration: none;
+}
+
 body {
   background-repeat: no-repeat, repeat-y;
   background-image: url(../img/Ryan_back.jpg);
@@ -37,16 +48,6 @@ body {
   }
  }
 
-/* navlinks */
-.nav_links{
-  padding-top: 2%;
-  text-align: right;
-  display: flex;
-  justify-content:space-around;
-  list-style-type: none;
-  font-size: 30px;
-  text-decoration: none;
-}
 
 .nav_links:nth-child(1){
   font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif

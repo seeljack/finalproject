@@ -1,3 +1,14 @@
+/* navlinks */
+.nav_links{
+  padding-top: 2%;
+  text-align: right;
+  display: flex;
+  justify-content:space-around;
+  list-style-type: none;
+  font-size: 30px; 
+  text-decoration: none;
+}
+
 body {
   background-repeat: no-repeat, repeat;
   background-image: url(../img/Ryan_back.jpg);
@@ -6,15 +17,6 @@ body {
   /* background-image: url("https://uploads-ssl.webflow.com/5f7c29021be3c410facedbf1/5fd7597fe589fae49c1235ca_bg5.svg"); */
 }
 
-/* navlinks */
-.nav_links{
-    padding-top: 2%;
-    text-align: right;
-    display: flex;
-    justify-content:space-around;
-    list-style-type: none;
-    font-size: 30px; 
-  }
 
 
   .nav_links:nth-child(1){
