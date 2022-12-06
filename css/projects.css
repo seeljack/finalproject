@@ -61,7 +61,7 @@ body {
     font-size: 50px;
     animation: about_top 1s ease-out;
     padding-bottom: 25%;
-    color: #30265d;
+    color: #000000;
     padding-top:5%;
     font-style: italic;
     padding-right: 10%;
@@ -185,7 +185,7 @@ body {
         font-size: 150px;
         animation: about_top 1s ease-out;
         padding-bottom: 25%;
-        color: #30265d;
+        color: #000000;
         padding-top:5%;
         font-style: italic;
         padding-right: 10%;

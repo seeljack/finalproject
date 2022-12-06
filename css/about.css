@@ -9,7 +9,7 @@
 }
 
 body {
-  background-repeat: no-repeat, repeat;
+  background-repeat: no-repeat, repeat-y;
   background-image: url(../img/Ryan_back.jpg);
   background-color:#021245;
   /* background-image: url(../img/background.png), url(../img/background2.png); */
@@ -40,7 +40,7 @@ body {
 
   h1{
     font-size: 130px;
-    color: #30265d;
+    color: #000000;
     padding-top: 2%;
     animation: about_top 1s ease-out;
   }
@@ -285,7 +285,7 @@ footer{
   }
   h1{
     font-size: 130px;
-    color: #30265d;
+    color: #000000;
     padding-top: 2%;
     animation: none;
   }
