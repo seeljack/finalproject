@@ -6,61 +6,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/about.css">
-    <script src="js/style.js"></script>
+    <script src="js/about.js"></script>
 </head>
 <body>
-  <a class="skip-content" href="#top_about">Skip to main content</a>
+  <a class="skip-content" href="#top_about" style="color:black;">Skip to main content</a>
   <header>
     <nav>
-      <div class="nav_links">
-
-        <li class="about_me"> <a href="about_me.html" style="text-decoration: underline;">About Me</a></li>
-        <li class="home"> <a href="index.html"><img src="img/logo.png" alt="Logo with letters JS" width="70" height="60"></a></li>
-        <li class="projects"> <a href="projects.html" style="text-decoration: none ;">Proejcts</a></li>
-      </div>
+        <ul class="nav_links">
+          <li class="about_me"> <a href="about_me.html" style="text-decoration: none; color: rgb(0, 0, 0); border: 3px rgb(0, 0, 0) solid; padding: 5px;">About Me</a></li>
+          <li class="home"> <a href="index.html" style="text-decoration: none; color: rgb(0, 0, 0);">Home</a></li>
+          <!-- <li class="home"> <a href="index.html"><img src="img/logo.png" alt="Logo with letters JS" width="70" height="60"></a></li> -->
+          <li class="projects"> <a href="projects.html" style="text-decoration: none; color: rgb(0, 0, 0);">Projects</a></li>
+        </ul>
     </nav>
   </header>
-<h1 class="top_about" id="top_about"> &nbsp; &nbsp; &nbsp; &nbsp;My <br><br> &nbsp; &nbsp; &nbsp; &nbsp; Story...</h1>
+<main>
+<h1 class="top_about" id="top_about">  &nbsp; &nbsp;My Story...</h1>
 <div class="about_img">
-  <div class="row">
-  <img src="img/About_Me/Bike.JPG" id="the_image" alt="Biking on a trail on a sunny day"style="width:500px;height:600px;">
-  <p id="txt">I like to bike</p>
-  <div>
-  <div class="row">
-  <img src="img/About_Me/Coffee.JPG" id="the_image2" alt="Good Cup of Coffee"style="width:500px;height:600px;">
-  <p id="txt2"> I love coffee</p>
-  <div>
-  <div class="row">
-  <img src="img/About_Me/Food.JPG" id="the_image" alt="Food out on a dinning table ready to eat"style="width:500px;height:600px;">
-  <p id="txt">  I love food</p>
-  <div>
-  <div class="row">
-  <img src="img/About_Me/IMG_0053.JPG" id="the_image2" alt="Selfie"style="width:500px;height:600px;">
-  <p id="txt2"> Selfie!</p>
+  <div class="set">
+    <div class="row fade-right">
+      <img src="img/About_Me/Bike.JPG" alt="Biking on a trail on a sunny day"style="width:400px;height:400px;">
+    </div>
+    <div class="row_text">
+      <p class="txt">I Like to Bike and Run. </p>
+      <p class="txt">I Have been running for 10 years and am part of the Michigan Club Running Team. Furthermore, I love to bike and biked over 100 miles from my house to ohio. </p>
+    </div>
   </div>
-  <div class="row">
-  <img src="img/About_Me/Snowboarding.JPG" id="the_image" alt="Picture overloaking mountains with snowboard"style="width:500px;height:600px;">
-  <p id="txt"> I love to snowboard</p>
-  <div>
-  <div class="row">
-  <img src="img/About_Me/windsurfing.jpg" id="the_image2" alt="Pictue of me windsurfing"style="width:500px;height:600px;">
-  <p id="txt2"> I like to windsurf</p>
+  <div class="set">
+    <div class="row fade-left">
+      <img src="img/About_Me/Hamilton.jpg" alt="Picture of a chocolate lab"style="width:400px;height:400px;">
+    </div>
+    <div class="row_text">
+      <p class="txt2"> I Love My Dog.</p>
+      <p class="txt2"> Hamilton is a 5 year old chocolate lab. His birthday is october 1st and he loves to take naps and eat cheese</p>
+    </div>
   </div>
-  <div class="row">
-  <img src="img/About_Me/Paino.JPG" id="the_image" alt="Hands Playing the Paio"style="width:500px;height:600px;">
-  <p id="txt"> I love playing the paino</p>
+  <div class="set">
+    <div class="row fade-right">
+      <img src="img/About_Me/Hiking.jpg" alt="Picture of family hiking in Santorini"style="width:400px;height:400px;">
+    </div>
+    <div class="row_text">
+      <p class="txt">  I love to Hike. </p>
+      <p class="txt">  This is a picture of my family hiking in Greece. It was a really sunny and beautiful day. Sometimes Hamilton even comes with. </p>
+    </div>
   </div>
-  <div class="row">
-  <img src="img/About_Me/Running.jpeg" id="the_image2" alt="Pictue of me running"style="width:500px;height:600px;">
-  <p id="txt2"> I love to run</p>
+  <div class="set">
+    <div class="row fade-left">
+      <img src="img/About_Me/Snowboarding.JPG"  alt="Picture of a snowboard on a mountain"style="width:400px;height:400px;">
+    </div>
+    <div class="row_text">
+      <p class="txt2"> I love to snowboard</p>
+      <p class="txt2"> I have been snowboarding sense I was a kid and love to go in the winter. This photo was taken on top of a mountain in Colorado.</p>
+    </div>
   </div>
-  <div class="row">
-  <img src="img/About_Me/Cat.jpeg" id="the_image" alt="Pictue of cat"style="width:500px;height:600px;">
-  <p id="txt"> I love my cat</p>
+  <div class="set">
+    <div class="row fade-right">
+      <img src="img/About_Me/Michigan.jpg" alt="Picture of me making an M in front of the Big House at Michigan"style="width:400px;height:400px;">
+    </div>
+    <div class="row_text">
+      <p class="txt"> Go Blue! </p>
+      <p class="txt"> I am currently enrolled at the University of Michigan where I plan on pursuing a degree in Informatino Analysis and Computer Science. </p>
+    </div>
+  </div>
+  <div class="set">
+    <div class="row fade-left">
+      <img src="img/About_Me/Family.jpg"  alt="Picture of my family of 6. Mom, Dad, Me, and three sisters"style="width:400px;height:400px;">
+    </div>
+    <div class="row_text">
+      <p class="txt2"> My family </p>
+      <p class="txt2"> I have 3 sisters. My twin Maddie, and Sophia and Lillie who are also twins. Then there is also my mom and Dad. </p>
+    </div>
+  </div>
+  <div class="set">
+    <div class="row fade-right">
+      <img src="img/About_Me/Cousins.jpg" alt="Picture of me standing with two of my cousins, male and female, and two of my sisters "style="width:400px;height:400px;">
+    </div>
+    <div class="row_text">
+      <p class="txt"> Cousins!</p>
+      <p class="txt"> I love my cousins. Here is a picture of some of them after one graduated from Michigan State.</p>
+    </div>
+  </div>
+  <div class="set">
+    <div class="row fade-left">
+      <img src="img/About_Me/Football.jpg" alt="Picture of me and my dad at a football stadium"style="width:400px;height:400px;">
+    </div>
+    <div class="row_text">
+      <p class="txt2"> I love football</p>
+      <p class="txt2"> I have been a michigan football fan my enitre life. Here is a picture of me and my dad at the championship game last year against Georgia.</p>
+    </div>
+  </div>
+  <div class="set">
+    <div class="row fade-right">
+      <img src="img/About_Me/Mom.jpg"  alt="Picture of Me and my mom at the end of the Tuckey Trot, a running race. "style="width:400px;height:400px;">
+    </div>
+    <div class="row_text">
+      <p class="txt"> More Running!</p>
+      <p class="txt"> Every year I compete in the annual turkey trot with my family. Here is a picture of me and my mom after we both ran.</p>
+    </div>
   </div>
 </div>
-</body>
-
+</main>
 <footer>
   Est. Birmingham MI
 </footer>
+</body>

@@ -1,10 +1,12 @@
 body {
-  background-color:#f6f5ff;
-  background-image: url("https://uploads-ssl.webflow.com/5f7c29021be3c410facedbf1/5fd7597fe589fae49c1235ca_bg5.svg");
+  background-repeat: no-repeat, repeat-y;
+  background-image: url(../img/Ryan_back.jpg);
+  background-color: #021245;
+  /* background-image: url("https://uploads-ssl.webflow.com/5f7c29021be3c410facedbf1/5fd7597fe589fae49c1235ca_bg5.svg"); */
 }
 
 /* This is the text for the typwritter */
-* { color:#30265d; text-decoration: none;}
+* { color:rgb(8, 6, 6); text-decoration: none;}
 
 /* Hi im jack */
 .intro{
@@ -18,7 +20,12 @@ body {
 .typewrite{
   text-align: center;
   padding-left: 33%;
-  font-size: 80px;
+  font-size: 30px;
+}
+
+/* for reduced motino */
+.typewrite2{
+  visibility: hidden;
 }
 
 @keyframes intro {
@@ -39,6 +46,10 @@ body {
   list-style-type: none;
   font-size: 30px;
   text-decoration: none;
+}
+
+.nav_links:nth-child(1){
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 /* what you see when you start scrollling */
@@ -64,16 +75,44 @@ body {
 footer{
   text-align: center;
   padding-top: 20%;
+  color: white;
 }
 
 .skip-content{
-  background: #e77e23;
+  background: white;
   height: 20px;
   left: 50%;
   padding: 8px;
   position: absolute;
-  transform: translateY(-150%);
+  transform: translateY(-250%);
   transition: transform 0.3s;
 }
+
+
+/* reducing motion */
+@media (prefers-reduced-motion) {
+  /* styles to apply if the user's settings are set to reduced motion */
+  .typewrite{
+    visibility: hidden;
+  }
+  .typewrite2{
+    visibility: visible;
+    text-align: center;
+    font-size: 80px;
+  }
+  .intro{
+    animation: intro .001s ease-out;
+  }
+}
+
+
+@media (min-width: 880px) {
+  .typewrite{
+    text-align: center;
+    padding-left: 33%;
+    font-size: 80px;
+  }
+ 
+  }
 
 
