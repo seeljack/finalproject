@@ -1,0 +1,140 @@
+.wordle{
+    padding-left: 35%;
+}
+.input{
+    padding-left: 13%;
+}
+
+
+
+
+/* navlinks */
+.nav_links{
+    padding-top: 2%;
+    text-align: right;
+    display: flex;
+    justify-content:space-around;
+    list-style-type: none;
+    font-size: 30px;
+    text-decoration: none;
+  }
+  
+  body {
+    background-repeat: no-repeat, repeat-y;
+    background-image: url(../img/Ryan_back.jpg);
+    background-color: #021245;
+    /* background-image: url("https://uploads-ssl.webflow.com/5f7c29021be3c410facedbf1/5fd7597fe589fae49c1235ca_bg5.svg"); */
+  }
+  
+  /* This is the text for the typwritter */
+  * { color:rgb(8, 6, 6); text-decoration: none;}
+  
+  /* Hi im jack */
+  .intro{
+    text-align: center;
+    padding-top: 8%;
+    font-size: 100px;
+    animation: intro 1s ease-out;
+  }
+  
+  /* typwritter thing */
+  .typewrite{
+    text-align: center;
+    padding-left: 33%;
+    font-size: 30px;
+  }
+  
+  /* for reduced motino */
+  .typewrite2{
+    visibility: hidden;
+  }
+  
+  @keyframes intro {
+    0%   { 
+    transform: translateY(-100%); 		
+    }
+    100% { 
+    transform: translateY(0%); 
+    }
+   }
+  
+  
+  .nav_links:nth-child(1){
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  }
+  
+  /* what you see when you start scrollling */
+  #part2{
+    padding-top: 20%;
+    text-align: center;
+    font-size: 30px;
+  }
+  
+  .about_me{
+    padding-top: 1%;
+  }
+  
+  .projects{
+    padding-top: 1%;
+  }
+  
+  /* Only for nav when home tab isnt the logo */
+  .home{
+    padding-top: 1%;
+  }
+  
+  footer{
+    text-align: center;
+    padding-top: 20%;
+    color: white;
+  }
+  
+  .skip-content{
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    position: absolute;
+    overflow: hidden;
+  }
+  
+  /* this will run when it is tabed */
+  .skip-content:focus{
+    margin-left:  48%;
+    margin-top: 50px;
+    border: rgb(0, 0, 0) 5px solid;
+    padding: 5px;
+    position: static;
+    overflow: visible;
+  }
+  
+  
+  
+  /* reducing motion */
+  @media (prefers-reduced-motion) {
+    /* styles to apply if the user's settings are set to reduced motion */
+    .typewrite{
+      visibility: hidden;
+    }
+    .typewrite2{
+      visibility: visible;
+      text-align: center;
+      font-size: 80px;
+    }
+    .intro{
+      animation: intro .001s ease-out;
+    }
+  }
+  
+  
+  @media (min-width: 880px) {
+    .typewrite{
+      text-align: center;
+      padding-left: 33%;
+      font-size: 80px;
+    }
+   
+    }
+  
+    
+  
+  

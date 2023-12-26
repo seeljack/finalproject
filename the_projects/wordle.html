@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery</title>
+    <link rel="stylesheet" href="../css/wordle.css">
+    <script src="/Users/jackseel/Documents/Documents/UMSI339/finalproject/js/style.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <a class="skip-content" href="#intro">Skip to main content</a>
+        <ul class="nav_links">
+          <!-- <li class="about_me"> <a href="about_me.html" style="text-decoration: none; color: rgb(0, 0, 0);background-color: #c1f9f8;">About Me</a></li> -->
+          <li class="home"> <a href="../index.html" style="text-decoration: none; color: rgb(0, 0, 0);background-color: #c1f9f8;">Home</a></li>
+          <li class="projects"> <a href="../projects.html" style="text-decoration: none; color: rgb(0, 0, 0);border:3px rgb(0, 0, 0) solid; padding: 5px; background-color: #c1f9f8;">Projects</a></li>
+        <!-- <li class="home"> <a href="index.html"><img src="img/logo.png" alt="Logo with letters JS" width="70" height="60"></a></li> -->
+        </ul>
+    </nav>
+  </header>
+<main>
+  <body>
+    <h1>Michordle</h1>
+    <h2>Only hard version out right now (will only tell you if correct letter is in correct place)</h2>
+    <div class="wordle">
+    <h1>Guess a 5 letter word in 5 turns</h1>
+    <h1 id="result"> </h1>
+    <h1 id="congrats"> </h1> 
+    <div class="input">
+      <form onsubmit="driver(); return false;">
+        <input type="text" id="userInput" name="userInput">
+        <button type="submit"> Submit</button>
+      </form>
+    </div>
+    </div>
+  </body>
+  <script>
+    
+
+    // WHENEVER YOU ADD WORDS MAKE SURE TO CHANGE CORRECT ANSWER TO * THE NUMBER OF WORD ADDED
+    const fiveLetterWords = [
+      'Angel','Mason','South','Sigma','maize', 'skeep', 'eeccs','stack','study','state'
+    ];
+    var the_correct = correctAnswer();
+    var allGuesses = "";
+    var totalGuesses = 0;
+    function getUserInput() { 
+      var the_userInput = document.getElementById("userInput").value;
+      return the_userInput
+    }
+    
+    function correctAnswer() {
+      var x = Math.floor(Math.random() * 10);
+      return fiveLetterWords[x];
+    }
+    function userInput() {
+      var wrong = false;
+      var guess = getUserInput();
+      var guessLow = guess.toLowerCase();
+      var the_guess = "";
+      if (guess.length === 5) {
+        for (var letter = 0; letter < 5; letter++) {
+          if (the_correct[letter] === guessLow[letter]) {
+            the_guess += (guess[letter] + " ");
+          } else {
+            the_guess += ("X ");
+            wrong = true;
+          }
+        }
+        if (wrong) {
+          console.log(the_guess);
+          allGuesses += the_guess + "<br>";
+          document.getElementById("result").innerHTML = allGuesses;
+          if(totalGuesses == 5){
+            document.getElementById("congrats").innerHTML = "You did not find the word in time! The correct word was ";
+            document.getElementById("congrats").innerHTML = the_correct;
+          }
+        } else {
+          document.getElementById("result").innerHTML = the_guess;
+          document.getElementById("congrats").innerHTML = "Congrats! You found the word in " + totalGuesses + "!";
+        }
+      } else {
+        alert("Must be 5 letters");
+      }
+    }
+    function driver(){
+      console.log(the_correct)
+      totalGuesses += 1
+      userInput();
+    }
+    // while (!userInput(correct)) {
+    //   alert("\nTry again 😊\n");
+    // }
+  </script>
+</main> 
+
+<!-- <h3 id="part2">Projects </h3> -->
+
+<footer>
+  Est.Birmingham MI
+</footer>
+
+</body>
+</html>

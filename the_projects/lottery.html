@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery</title>
+    <link rel="stylesheet" href="/Users/jackseel/Documents/Documents/UMSI339/finalproject/css/style.css">
+    <script src="/Users/jackseel/Documents/Documents/UMSI339/finalproject/js/style.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <a class="skip-content" href="#intro">Skip to main content</a>
+        <ul class="nav_links">
+          <!-- <li class="about_me"> <a href="about_me.html" style="text-decoration: none; color: rgb(0, 0, 0);background-color: #c1f9f8;">About Me</a></li> -->
+          <li class="home"> <a href="../index.html" style="text-decoration: none; color: rgb(0, 0, 0);background-color: #c1f9f8;">Home</a></li>
+          <li class="projects"> <a href="../projects.html" style="text-decoration: none; color: rgb(0, 0, 0);border:3px rgb(0, 0, 0) solid; padding: 5px; background-color: #c1f9f8;">Projects</a></li>
+        <!-- <li class="home"> <a href="index.html"><img src="img/logo.png" alt="Logo with letters JS" width="70" height="60"></a></li> -->
+        </ul>
+    </nav>
+  </header>
+<main>
+          <body>
+            <h1> This will randomly generate winning powerball tickets until it matches your ticket. Below it will keep track of how many tries this takes. </h1>
+            <h3>Due to the delay of rendering the count on the screen this will take a while</h3>
+            <h1 id="result"> </h1>
+            <form id="lotteryForm" method="post" onsubmit="updateAction(); return false;">
+              <p>Choose 5 numbers 1-69:</p>
+              <p><input type="text" name="number1" /></p>
+              <p><input type="text" name="number2" /></p>
+              <p><input type="text" name="number3" /></p>
+              <p><input type="text" name="number4" /></p>
+              <p><input type="text" name="number5" /></p>
+              <p>Choose 1 number 1-26:</p>
+              <p><input type="text" name="number6" /></p>
+              <p><input type="submit" value="submit" /></p>
+            </form>
+          </body>
+          <script>
+              function updateAction() {
+                  // Get the values of number1 and number2
+                  var number1Value = document.getElementById('lotteryForm').elements['number1'].value;
+                  var number2Value = document.getElementById('lotteryForm').elements['number2'].value;
+                  var number3Value = document.getElementById('lotteryForm').elements['number3'].value;
+                  var number4Value = document.getElementById('lotteryForm').elements['number4'].value;
+                  var number5Value = document.getElementById('lotteryForm').elements['number5'].value;
+                  var number6Value = document.getElementById('lotteryForm').elements['number6'].value;
+                  // Update the form action with the values
+                  // document.getElementById('lotteryForm').action = 'http://127.0.0.1:5000/lottery/' + number1Value + '/' + number2Value + '/' + number3Value + '/' + number4Value + '/' + number5Value;
+                  console.log("setEqual")
+                  seeIfEqual(number1Value,number2Value,number3Value,number4Value,number5Value);
+                  return false
+                }
+                  function getRandomTicket() {
+                      var lotto = [];
+                      for (var i = 0; i < 5; i++) {
+                          var x = Math.floor(Math.random() * 71);
+                          var pp = false;
+                          while (!pp) {
+                              if (lotto.includes(x)) {
+                                  x = Math.floor(Math.random() * 71);
+                              } else {
+                                  pp = true;
+                              }
+                          }
+                          lotto.push(x);
+                      }
+                      var y = Math.floor(Math.random() * 27);
+                      lotto.push(y);
+                      return lotto;
+                    }
+
+                    function seeIfEqual(number1Value,number2Value,number3Value,number4Value,number5Value, number6Value) {
+                      var resultElement = document.getElementById('result');
+                      var x = false;
+                      var count = 0;
+                      var r = [number1Value, number2Value, number3Value, number4Value, number5Value, number6Value]
+                      console.log(r)
+                      function checkEquality() {
+                        var t = getRandomTicket();
+                        for (var i = 0; i < r.length; i++) {
+                          if (!t.includes(r[i])) {
+                            x = false;
+                            break;
+                          } else {
+                            x = true;
+                          }
+                        }
+                        if (x == false) {
+                            count++;
+                            console.log(count)
+                            resultElement.innerHTML = count
+                            setTimeout(function () {
+                              checkEquality(); // Schedule the next iteration
+                            }, 1);
+                        } else {
+                             console.log("CONGRATULATIONS")
+                             resultElement.innerHTML = "Congrats it took you " + count + " tries: your winning ticket " + r;
+
+                        }
+                    }
+                    checkEquality()
+                  }
+          </script>
+</main> 
+
+<!-- <h3 id="part2">Projects </h3> -->
+
+<footer>
+  Est.Birmingham MI
+</footer>
+
+</body>
+</html>
+
