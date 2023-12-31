@@ -89,11 +89,11 @@ body {
 
   /* background of the class */
   .class:nth-child(1){
-    background-color: lightgreen;
+    background-color: lightblue;;
     border:15px black solid;
   }
   .class:nth-child(2){
-    background-color: lightblue;
+    background-color: lightgreen;
     border:15px black solid;
   }
   .class:nth-child(3){

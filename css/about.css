@@ -128,23 +128,23 @@ footer{
 /* image style */
 .set:nth-child(1) .row img{
   margin-bottom: 30px;
-  border: 10px solid rgb(178, 241, 168)
+  border: 10px solid rgb(255, 255, 255)
 }
 .set:nth-child(2) .row img{
   margin-bottom: 30px;
-  border: 10px solid rgb(95, 62, 8)
+  border: 10px solid rgb(255, 255, 255)
 }
 .set:nth-child(3) .row img{
   margin-bottom: 30px;
-  border: 10px solid rgb(118, 10, 151)
+  border: 10px solid rgb(255, 255, 255)
 }
 .set:nth-child(4) .row img{
   margin-bottom: 30px;
-  border: 10px solid rgb(84, 80, 80)
+  border: 10px solid rgb(255, 255, 255)
 }
 .set:nth-child(5) .row img{
   margin-bottom: 30px;
-  border: 10px solid rgb(88, 143, 190)
+  border: 10px solid rgb(255, 255, 255)
 }
 .set:nth-child(6) .row img{
   margin-bottom: 30px;

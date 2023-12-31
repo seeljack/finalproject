@@ -29,8 +29,8 @@ body {
 
 /* typwritter thing */
 .typewrite{
-  text-align: center;
-  padding-left: 33%;
+  text-align: left;
+  padding-right: 15%;
   font-size: 30px;
 }
 
@@ -38,6 +38,7 @@ body {
 .typewrite2{
   visibility: hidden;
 }
+
 
 @keyframes intro {
   0%   { 
