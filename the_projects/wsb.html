@@ -21,7 +21,24 @@
     </nav>
   </header>
 <main>
-          <body>
+  <body>
+    <h1>Wall Street Bets Stock Simulator</h1>
+    <h2>What this does:</h2>
+    <p>User inputs a date. The program then takes the percent change of the top wall street bet stocks under the conditions 
+      the user put in the function 'wall_street_bet_stock_from_previous_day'. It takes the stock price of each stock for a 
+      period of {test_length}, starting at the date after the date inputed. It will then compare these stocks against the vanguard 500, to see how it compares. For Example:
+      User entered: 2022-03-04. Test_Length = 10. Program gets top stocks from wall street bets from dates (2022-03-05-2022-03-15).
+      The number of stocks it takes into account, number of comments the stocks chosen have, ETC, can be changed in the function 'wall_street_bet_stock_from_previous_day'. It then uses those conditions
+      to see the average change all the stocks had during that time period, then compares it with the controll (vanguard 500).
+      Furthermore, you can also test stocks for the current day, and create databases using SQLITE.</p>
+    <h4>Unfortunatly you must download the code from the github link below and 
+      run it locally but I am currently working on a way to deploy this application with flask/Heroku.</h4>
+     <p><strong>Github Link:</strong> LINK</p>
+     <h4>Moving Forward: </h4>
+     <p>Some interesting things to take into account with this is while Wall Street Bets may not be the most promising you can use this same idea for other APIs. You can look at news/stock sentiment, cashflow, earnings, etc for top stocks and run the program a large amount of times to get a p score (when comparing it to other indicators) and find which conditions lead to the best results.</p>
+  </body>
+
+          <!-- <body>
             <h1> This will randomly generate winning powerball tickets until it matches your ticket. Below it will keep track of how many tries this takes. </h1>
             <h3>Due to the delay of rendering the count on the screen this will take a while</h3>
             <h1 id="result"> </h1>
@@ -40,7 +57,7 @@
             </form>
           </body>
           <!--USE FLASK-->      
-          <script>
+          <!-- <script>
                 function updateAction() {
                   console.log("Start")
                   // Get the values of number1 and number2
@@ -56,7 +73,7 @@
                   document.getElementById('wsbform').action = 'http://127.0.0.1:5000/wsb/' + Year + '/' + Month + '/' + Day + '/' + Test_Length + '/' + NOC + '/' + Bullish_Bearish + '/' + SS + '/' + Number_of_Stocks;
                   console.log("setEqual")
                 }
-          </script>
+          </script> -->
 </main> 
 
 <!-- <h3 id="part2">Projects </h3> -->
