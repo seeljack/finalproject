@@ -13,7 +13,7 @@
     <nav>
       <a class="skip-content" href="#intro">Skip to main content</a>
         <ul class="nav_links">
-          <!-- <li class="about_me"> <a href="about_me.html" style="text-decoration: none; color: rgb(0, 0, 0);background-color: #c1f9f8;">About Me</a></li> -->
+          <li class="about_me"> <a href="about_me.html" style="text-decoration: none; color: rgb(0, 0, 0);background-color: #c1f9f8;">About Me</a></li>
           <li class="home"> <a href="../index.html" style="text-decoration: none; color: rgb(0, 0, 0);background-color: #c1f9f8;">Home</a></li>
           <li class="projects"> <a href="../projects.html" style="text-decoration: none; color: rgb(0, 0, 0);border:3px rgb(0, 0, 0) solid; padding: 5px; background-color: #c1f9f8;">Projects</a></li>
         <!-- <li class="home"> <a href="index.html"><img src="img/logo.png" alt="Logo with letters JS" width="70" height="60"></a></li> -->
@@ -25,9 +25,11 @@
             <h1> This will randomly generate winning powerball tickets until it matches your ticket. Below it will keep track of how many tries this takes. </h1>
             <h3>Due to the delay of rendering the count on the screen this will take a while</h3>
             <h1 id="result"> </h1>
-            <form id="wsbform" method="post" onsubmit="updateAction(); return false;">
+            <form id="wsbform" method="post" onsubmit="updateAction();">
               <p>Choose 5 numbers 1-69:</p>
-              <p><input type="date" name="date" /></p>
+              <p><input type="text" name="Year" /></p>
+              <p><input type="text" name="Month" /></p>
+              <p><input type="text" name="Day" /></p>
               <p><input type="text" name="test_length" /></p>
               <p><input type="number" name="NOC" /></p>
               <p><input type="text" name="Bullish_Bearish" /></p>
@@ -37,70 +39,31 @@
               <p><input type="submit" value="submit" /></p>
             </form>
           </body>
-          <!--USE FLASK-->
-
-
-
-
-
-
-          
-          <!-- <script>
-                const express = require('express');
-                const app = express();
-
-                app.use((req, res, next) => {
-                    res.header('Access-Control-Allow-Origin', '*'); // Allow requests from any origin
-                    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-                    next();
-                });
-                async function wallStreetBetDifferentDays(x, date) {
-                    const url = `https://dashboard.nbshare.io/api/v1/apps/reddit?date=${date}`;
-                    try {
-                        const response = await fetch(url);
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! Status: ${response.status}`);
-                        }
-                        const data = await response.json();
-                        return data;
-                    } catch (error) {
-                        console.error(`Error fetching data: ${error.message}`);
-                        return null;
-                    }
-                }
+          <!--USE FLASK-->      
+          <script>
                 function updateAction() {
+                  console.log("Start")
                   // Get the values of number1 and number2
-                  var the_date = document.getElementById('wsbform').elements['date'].value;
+                  var Year = document.getElementById('wsbform').elements['Year'].value;
+                  var Month = document.getElementById('wsbform').elements['Year'].value;
+                  var Day = document.getElementById('wsbform').elements['Year'].value;
                   var Test_length = document.getElementById('wsbform').elements['test_length'].value;
                   var NOC = document.getElementById('wsbform').elements['NOC'].value;
                   var Bullish_Bearish = document.getElementById('wsbform').elements['Bullish_Bearish'].value;
                   var SS = document.getElementById('wsbform').elements['SS'].value;
                   var Number_of_Stocks = document.getElementById('wsbform').elements['number_of_stocks'].value;
                   // Update the form action with the values
-                  // document.getElementById('wsbform').action = 'http://127.0.0.1:5000/lottery/' + number1Value + '/' + number2Value + '/' + number3Value + '/' + number4Value + '/' + number5Value;
+                  document.getElementById('wsbform').action = 'http://127.0.0.1:5000/wsb/' + Year + '/' + Month + '/' + Day + '/' + Test_Length + '/' + NOC + '/' + Bullish_Bearish + '/' + SS + '/' + Number_of_Stocks;
                   console.log("setEqual")
-                //   var Month = the_date.getMonth() + 1; // Months are zero-based, so add 1
-                //   var Day = the_date.getDate();
-                //   var Year = the_date.getFullYear();
-                  var Month = 0;
-                  var Year = 0;
-                  var Day = 0;
-                  wall_street_bet_get_stock_from_previous_days(the_date,Year,Month,Day,Test_length,NOC,Bullish_Bearish,SS,Number_of_Stocks);
-                  return false
                 }
-                function wall_street_bet_get_stock_from_previous_days(the_date, Year, Month, Day, Test_length, NOC, Sentiment, SS, number_of_stocks){
-                    data_list = wallStreetBetDifferentDays("dog", the_date);
-                    console.log(data_list);
-                }
-                updateAction();
-          </script> -->
+          </script>
 </main> 
 
 <!-- <h3 id="part2">Projects </h3> -->
 
-<footer>
+<!-- <footer>
   Est.Birmingham MI
-</footer>
+</footer> -->
 
 </body>
 </html>

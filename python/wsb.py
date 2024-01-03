@@ -12,23 +12,133 @@ import requests
 import yfinance as yf
 import numpy as np 
 import datetime
-from flask import Flask, render_template
-import flask
-import random
-import subprocess
-import time
-app = Flask(__name__)
 
-#export FLASK_APP=python/test.py
-#flask run
+#WHAT THE PROGRAM DOES
+#User inputs a date. The program then takes the percent change of the top wall street bet stocks under the conditions 
+#the user put in the function 'wall_street_bet_stock_from_previous_day'. It takes the stock price of each stock for a 
+#period of {test_length}, starting at the date after the date inputed. For Example:
+#User entered: 2022-03-04. Test_Length = 10. Program gets top stocks from wall street bets from dates (2022-03-05-2022-03-15).
+#The number of stocks it takes into account, number of comments the stocks chosen have, ETC, can be changed in the function 'wall_street_bet_stock_from_previous_day'
 
+
+
+
+
+
+
+
+
+# https://dashboard.nbshare.io/api/v1/apps/reddit?date=2022-04-03
+
+#Calculates percent Change between first and last item in list
+#Takes in list of prices and number of stocks you are taking in {y}
+def percent_change_over_entire_period(list_of_prices, number_of_stocks):
+    #For if you are doing multiple stocks and taking the average of the percent change
+    #Deletes nan values from list_of_prices
+    list_of_prices = [x for x in list_of_prices if x == x]
+    #If there arent two or more values. Delete The stock and get stock number. 
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    if "NewStock" in list_of_prices:
+        count = 0
+        skip = []
+        num_skip = 0
+        list_of_percent_changes = []
+        for i in range(len(list_of_prices)):
+            if list_of_prices[i] == "NewStock":
+                count = 0
+                end = list_of_prices[i-1]
+                percent_change = (end - start) / start
+                list_of_percent_changes.append(percent_change)
+                continue
+            if count == 0:
+                start = list_of_prices[i]
+                count += 1
+        average_percent_change = sum(list_of_percent_changes) / len(list_of_percent_changes)
+        return average_percent_change
+    #For if you are doing a single stock and just getting the percent change     
+    else:
+        start = list_of_prices[0]
+        end = list_of_prices[-1]
+        percent_change = (end - start) / start
+        return percent_change
+
+##Gets Wall Street Bet data from API
+def get_api_wallstreetbet(x):
+    url = "https://tradestie.com/api/v1/apps/reddit"
+    data = requests.get(url)
+    data1 = data.text
+    data_list = json.loads(data1)
+    return data_list
+
+
+#data = yf.download(tickers="MSFT", period="15m", interval="1m")
+#Gets Stock Market Price Data and sees percent change for every 15 minutes
+def get_stocks_with_good_setiment_15minute_change(ticker, number_of_stocks, period = "15m", interval = "1m"):
+    # Get the data
+    for i in ticker:
+        data = yf.download(tickers=ticker, period=period, interval=interval)
+        list_of_prices = []
+        for i , y in data.tail().items():
+            if i[1]:
+                p = i[1]
+                break
+        for i , y in data.tail().items():
+            for x in y:
+                if 'Open' in i:
+                    if i[1]:
+                        if p == i[1]:
+                            list_of_prices.append(x)
+                        else:
+                            p = i[1]
+                            list_of_prices.append("NewStock")
+                            list_of_prices.append(x)
+    list_of_prices.append("NewStock")
+    stock_percent_change = percent_change_over_entire_period(list_of_prices, number_of_stocks)
+    return stock_percent_change
+
+
+#Goes through Wall Street Bet data and gets the stocks with setiment scores above {SS} and returns top {y} (by number of comments) stocks
+#Then puts it into get_stocks_with_good_setiment_15_change and returns the stocks percent change
+def get_stocks_good_setiment(SS,number_of_stocks=2):
+
+    data_list = get_api_wallstreetbet("cat")
+    stocks_good_set = []
+    stocks_good_set_ticker = []
+    for dic in data_list:
+        if dic["sentiment_score"] > SS:
+            stocks_good_set.append(dic)
+    stocks_good_set_sorted = sorted(stocks_good_set, key=lambda d: d['sentiment_score'], reverse=True) 
+    counter = 0
+    for i in stocks_good_set_sorted:
+        if counter == number_of_stocks:
+            break
+        else:
+            stocks_good_set_ticker.append(i['ticker'])
+            counter += 1
+    print(stocks_good_set_ticker)
+    stock_percent_change = get_stocks_with_good_setiment_15minute_change(stocks_good_set_ticker, number_of_stocks)
+    return stock_percent_change
+
+
+#----------------------------------------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------------------
 #For stock in the past
-
-
-
-#if dosnt work try adding or deleting a / at the end
-# http://127.0.0.1:5000/wsb/2022/05/04/03/02/01/02/03
-
 
 # https://dashboard.nbshare.io/api/v1/apps/reddit?date=2022-04-03
 
@@ -45,17 +155,15 @@ def wall_street_bet_different_days(x, date):
 
 #Start of it and allows the user to input its own date
 #Test_length is the amount of days you are taking in info. So 10 days you would be taking in 10 days worth of the stock data
-
-@app.route('/wsb/<string:Year>/<string:Month>/<string:Day>/<string:Test_Length>/<int:NOC>/<string:Bullish_Bearish>/<int:SS>/<int:Number_of_Stocks>/')
-def make_shit_happen(Year="2022",Month="5",Day="4",Test_Length="3",NOC=2,Bullish_Bearish="1",SS=2,Number_of_Stocks=3):
-    date = Year + '-' + Month + '-' + Day
-    year = int(Year)
-    month = int(Month)
-    day = int(Day)
-    c = wall_street_bet_get_stock_from_previous_days(date, year, month, day, Test_Length)
-    return f'''
-        <h2>{c}</h2>\
-    '''
+def make_shit_happen(test_length):
+    year = input("Select a year (2022)\n")
+    month = input("Select a month (05)\n")
+    day = input("Select a day (04)\n")
+    date = year + '-' + month + '-' + day
+    year = int(year)
+    month = int(month)
+    day = int(day)
+    wall_street_bet_get_stock_from_previous_days(date, year, month, day, test_length)
 
 
    
@@ -66,7 +174,6 @@ def make_shit_happen(Year="2022",Month="5",Day="4",Test_Length="3",NOC=2,Bullish
 #{number_of_stocks} = The amount of stocks you want to return
 
 #Gets the tickers for the stocks you want given the restrictions, for stocks on previous days. Sorted by sentiment score.
-    
 def wall_street_bet_get_stock_from_previous_days(date, year, month, day, test_length, NOC = 0, Sentiment = "Bullish", SS = 0, number_of_stocks = 5):
     data_list = wall_street_bet_different_days("dog", date)
     stocks_good_set = []
@@ -130,8 +237,8 @@ def get_stocks_change_in_value_from_WSB_previous_days(stocks_good_set_ticker, da
                 list_of_prices.append("NewStock")
                 ns = 1
     average_percent_change = percent_change_for_stocks_previous_date(list_of_prices)
-    control_percent_change = control_average_percent_change(start, end)
-    return average_percent_change, control_percent_change
+    control_average_percent_change(start, end)
+    return average_percent_change
 
 
 #Get change in VOO over the same period for the wall street bets
@@ -147,7 +254,7 @@ def control_average_percent_change(start, end):
     b = list_of_prices[0]
     e = list_of_prices[-1]
     percent_change = ((e - b) / len(list_of_prices)) / 100
-    return "Percent change for the VOO during the time period from " + str(start) + " to " + str(end) + " is " + str(percent_change)
+    print("Percent change for the VOO during the time period from " + str(start) + " to " + str(end) + " is " + str(percent_change) + '\n')
 
 def percent_change_for_stocks_previous_date(list_of_prices):
     #For if you are doing multiple stocks and taking the average of the percent change
@@ -169,7 +276,7 @@ def percent_change_for_stocks_previous_date(list_of_prices):
                 start = list_of_prices[i]
                 count += 1
         average_percent_change = sum(list_of_percent_changes) / len(list_of_percent_changes)
-        return "This is the average Percent Change of top stocks in Wall Street Bets on the date selected " + str(average_percent_change)
+        return "This is the average Percent Change of top stocks in Wall Street Bets on the date selected " + str(average_percent_change) + '\n'
     #For if you are doing a single stock and just getting the percent change     
     else:
         start = list_of_prices[0]
@@ -227,7 +334,7 @@ def graph_functions(cur,conn):
 
 def main():
     print('Test stocks of given time frame')
-    make_shit_happen()
+    make_shit_happen(15)
 
     #Test not past stock
     # print('Trending stocks for today')
@@ -259,38 +366,9 @@ def main():
 
 
 
-
 if __name__ == '__main__':
     main()
     from waitress import serve
     unittest.main(verbosity=2)
-    
-# if __name__ == '__main__':
-#     app.run(host='127.0.0.1', port=5000, debug=True)
 
-# @app.route('/lottery/<int:number1>/<int:number2>/<int:number3>/<int:number4>/<int:number5>')
-# def lottery(number1,number2,number3,number4,number5):
-# def wall_street_bet_get_stock_from_previous_days(date, year, month, day, test_length, NOC = 0, Sentiment = "Bullish", SS = 0, number_of_stocks = 5):
-# 	data_list = wall_street_bet_different_days("dog", date)
-# 	stocks_good_set = []
-# 	stocks_good_set_ticker = []
-# 	for dic in data_list:
-# 		if dic['no_of_comments'] > NOC:
-# 			if dic['sentiment'] == Sentiment:
-# 				if dic['sentiment_score'] > SS:
-# 					stocks_good_set.append(dic)
-# 	stocks_good_set_sorted = sorted(stocks_good_set, key=lambda d: d['sentiment_score'], reverse=True) 
-# 	counter = 0
-# 	for i in stocks_good_set_sorted:
-# 		if counter == number_of_stocks:
-# 			break
-# 		else:
-# 			stocks_good_set_ticker.append(i['ticker'])
-# 			counter += 1
-# 	print("Trending stocks for day selected")
-# 	print(stocks_good_set_ticker)
-# 	c = get_stocks_change_in_value_from_WSB_previous_days(stocks_good_set_ticker, date, year, month, day, test_length)
-# 	print(c)
-# 	return c
 
-	# return flask.Response(inner(), mimetype='text/html')
