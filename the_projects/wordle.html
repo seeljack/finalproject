@@ -23,7 +23,7 @@
 <main>
   <body>
     <h1>Michordle</h1>
-    <h2>Only hard version out right now (will only tell you if correct letter is in correct place)</h2>
+    <h2>If Letter is capitalized, that means it is in the wrong place in the word</h2>
     <div class="wordle">
     <h1>Guess a 5 letter word in 5 turns</h1>
     <h1 id="result"> </h1>
@@ -41,14 +41,14 @@
 
     // WHENEVER YOU ADD WORDS MAKE SURE TO CHANGE CORRECT ANSWER TO * THE NUMBER OF WORD ADDED
     const fiveLetterWords = [
-      'Angel','Mason','South','Sigma','maize', 'skeep', 'eeccs','stack','study','state'
+      'angel','mason','south','sigma','maize', 'skeep','stack','study','state'
     ];
     var the_correct = correctAnswer();
     var allGuesses = "";
     var totalGuesses = 0;
     function getUserInput() { 
       var the_userInput = document.getElementById("userInput").value;
-      return the_userInput
+      return the_userInput;
     }
     
     function correctAnswer() {
@@ -58,27 +58,38 @@
     function userInput() {
       var wrong = false;
       var guess = getUserInput();
+      console.log(guess);
       var guessLow = guess.toLowerCase();
-      var the_guess = "";
+      var the_guess = [" "," "," "," "," "];
       if (guess.length === 5) {
         for (var letter = 0; letter < 5; letter++) {
+          for (var check = 0; check < the_correct.length; check++) {
+            if (guessLow[letter] == the_correct[check]) {
+              the_guess[letter] = guessLow[letter].toUpperCase();
+            }
+          }
+        }
+        for (var letter = 0; letter < 5; letter++) {
           if (the_correct[letter] === guessLow[letter]) {
-            the_guess += (guess[letter] + " ");
+            the_guess[letter] = (guess[letter] + " ");
           } else {
-            the_guess += ("X ");
+            if(the_guess[letter] === the_guess[letter].toLowerCase()){
+              the_guess[letter] = ("X ");
+            }
             wrong = true;
           }
         }
         if (wrong) {
           console.log(the_guess);
-          allGuesses += the_guess + "<br>";
+          allGuesses += the_guess.join('') + "<br>";
           document.getElementById("result").innerHTML = allGuesses;
           if(totalGuesses == 5){
             document.getElementById("congrats").innerHTML = "You did not find the word in time! The correct word was ";
             document.getElementById("congrats").innerHTML = the_correct;
           }
         } else {
-          document.getElementById("result").innerHTML = the_guess;
+          allGuesses += the_guess.join('') + "<br>";
+          document.getElementById("result").innerHTML = allGuesses;
           document.getElementById("congrats").innerHTML = "Congrats! You found the word in " + totalGuesses + "!";
         }
       } else {
