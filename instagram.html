@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Clone | Project Details</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #003554;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px; /* Space between items */
+            justify-items: center;
+            align-items: start;
+        }
+
+        .gallery-item {
+            text-align: center;
+        }
+
+        .gallery-item img {
+            width: 100%; /* Ensures image fits the container */
+            max-width: 300px; /* Limits the size of larger images */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05); /* Enlarges image slightly on hover */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item p {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Instagram Clone</h1>
+        <p>A Client-Side Dynamic Pages Project for EECS485</p>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Project Overview</h2>
+            <p>
+                This project is an <strong>Instagram Clone</strong>, built as part of EECS485, focused on client-side dynamic pages. It leverages 
+                JavaScript, React, and REST APIs to deliver a smooth and interactive user experience. The project demonstrates features such as 
+                user authentication, posting, commenting, liking, and infinite scrolling.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>How It Works</h2>
+            <ul>
+                <li><strong>Client-Side Rendering:</strong> The application uses JavaScript to dynamically update the DOM without reloading the page.</li>
+                <li><strong>REST API:</strong> Backend functionality is accessed via a REST API for posts, comments, and likes.</li>
+                <li><strong>AJAX Calls:</strong> JavaScript fetches data asynchronously, enabling features like liking posts or adding comments in real-time.</li>
+                <li><strong>Infinite Scrolling:</strong> Posts are loaded dynamically as the user scrolls, ensuring a seamless browsing experience.</li>
+                <li><strong>User Authentication:</strong> Login and session management are handled via secure tokens and server-side checks.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Features</h2>
+            <ul>
+                <li>User authentication with session cookies</li>
+                <li>Posting images and captions</li>
+                <li>Commenting on posts</li>
+                <li>Liking posts with real-time updates</li>
+                <li>Infinite scrolling for a continuous feed</li>
+                <li>Responsive UI for desktop and mobile</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Technologies Used</h2>
+            <ul>
+                <li><strong>Frontend:</strong> React, JavaScript, HTML, CSS</li>
+                <li><strong>Backend:</strong> Python, Flask, SQLite</li>
+                <li><strong>Tools:</strong> Webpack, ESLint, Prettier</li>
+                <li><strong>Testing:</strong> Cypress, Pytest</li>
+                <li><strong>Deployment:</strong> AWS</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <!-- Profile Page -->
+                <div class="gallery-item">
+                    <img src="/Users/jackseel/Documents/Documents/UMSI339/finalproject/img/instagramProfile.png" alt="Instagram Clone profile page">
+                    <p>Profile Page</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="/Users/jackseel/Documents/Documents/UMSI339/finalproject/img/instagramProfileWithImage.png" alt="Instagram Clone profile page with added image">
+                    <p>Profile Page with Added Image</p>
+                </div>
+                
+                <!-- Feed -->
+                <div class="gallery-item">
+                    <img src="/Users/jackseel/Documents/Documents/UMSI339/finalproject/img/InstagramFeed1.png" alt="Instagram Clone Feed 1">
+                    <p>Feed Post 1</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="/Users/jackseel/Documents/Documents/UMSI339/finalproject/img/InstagramFeed2.png" alt="Instagram Clone Feed 2">
+                    <p>Feed Post 2</p>
+                </div>
+        
+                <!-- Post View -->
+                <div class="gallery-item">
+                    <img src="/Users/jackseel/Documents/Documents/UMSI339/finalproject/img/InstagramPost.png" alt="Instagram Clone Post View">
+                    <p>Post View</p>
+                </div>
+        
+                <!-- Other Profile -->
+                <div class="gallery-item">
+                    <img src="/Users/jackseel/Documents/Documents/UMSI339/finalproject/img/InstagramOtherProfile.png" alt="Instagram Clone other users profile">
+                    <p>Other User’s Profile</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Challenges and Solutions</h2>
+            <ul>
+                <li><strong>Handling State:</strong> Used React’s `useState` and `useEffect` to manage post and comment updates efficiently.</li>
+                <li><strong>Authentication:</strong> Implemented HTTP Basic Auth for secure API communication.</li>
+                <li><strong>Infinite Scroll:</strong> Used React Infinite Scroll component to load posts dynamically without performance issues.</li>
+                <li><strong>Testing:</strong> Utilized Cypress for end-to-end testing and Pytest for backend functionality.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

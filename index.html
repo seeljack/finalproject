@@ -2,39 +2,241 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jack Seel | Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/style.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
   <header>
-    <nav>
-      <a class="skip-content" href="#intro">Skip to main content</a>
-        <ul class="nav_links">
-          <!-- <li class="about_me"> <a href="about_me.html" style="text-decoration: none; color: rgb(0, 0, 0);background-color: #c1f9f8;">About Me</a></li> -->
-          <li class="home"> <a href="index.html" style="text-decoration: none; color: rgb(0, 0, 0); border:3px rgb(0, 0, 0) solid; padding: 5px;background-color: #c1f9f8;">Home</a></li>
-          <li class="projects"> <a href="projects.html" style="text-decoration: none; color: rgb(0, 0, 0);background-color: #c1f9f8;">Projects</a></li>
-        <!-- <li class="home"> <a href="index.html"><img src="img/logo.png" alt="Logo with letters JS" width="70" height="60"></a></li> -->
-        </ul>
-    </nav>
+      <h1>Jack Seel</h1>
+      <nav>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+      </nav>
   </header>
-<main>
-  <h1 class="intro" tabindex="0" id="intro"> Hi there, I'm Jack! </h1> 
-  <h2 style="padding-right: 10%;">
-      <a class="typewrite" tabindex="0" data-period="2000" data-type='["I am an Athlete", "I am a Developer", "I am a Designer" ]'>
-        <span class="wrap"></span>
-      </a>
-  </h2>
-</main> 
 
-<!-- <h3 id="part2">Projects </h3> -->
+  <!-- Hero Section with Professional Image -->
+  <section class="hero">
+      <img src="/Users/jackseel/Documents/Documents/UMSI339/finalproject/img/About_Me/Headshot2.JPG" alt="A professional image of myself" style="max-width: 200px; border-radius: 50%; display: block; margin: 20px auto;">
+      <h2 style="text-align: center; font-size: 2.5rem;">Hi, I'm Jack Seel</h2>
+      <p style="text-align: center; font-size: 1.2rem; margin: 0 auto; max-width: 600px;">
+          I specialize in building innovative digital products to create real-world impact.
+      </p>
+  </section>
 
-<!-- <footer>
-  Est.Birmingham MI
-</footer> -->
+  <!-- Skills Section -->
+  <section class="skills-section">
+      <h2>My Skills</h2>
+      <div class="skills-container">
+          <div class="skill">Python</div>
+          <div class="skill">JavaScript</div>
+          <div class="skill">React</div>
+          <div class="skill">Node.js</div>
+          <div class="skill">HTML & CSS</div>
+          <div class="skill">C++</div>
+          <div class="skill">C</div>
+          <div class="skill">SQL</div>
+      </div>
+      <a href="resume/JackSeel_Resume.pdf" download class="download-resume">Download My Resume</a>
+  </section>
 
+<!-- Projects Section -->
+<section class="projects-section" id="projects">
+  <h2>Projects</h2>
+  <div class="project-card">
+      <h3>Healing Blue</h3>
+      <p>An app providing mental health resources to students, faculty, and staff.</p>
+      <a href="https://apps.apple.com/us/app/healing-blue/id6505079646">View Project</a>
+  </div>
+  <div class="project-card">
+      <h3>Star Mirror</h3>
+      <p>Facial recognition to find your celebrity look-alike.</p>
+      <a href="starmirror.html">View Project</a>
+  </div>
+  <div class="project-card">
+      <h3>GoDono</h3>
+      <p>A platform connecting donors and volunteers to improve communities.</p>
+      <a href="#">View Project</a>
+  </div>
+  <!-- New Instagram Project -->
+  <div class="project-card">
+      <h3>Instagram</h3>
+      <p>A full-stack clone of Instagram with user authentication, posting, and commenting features.</p>
+      <a href="instagram.html" target="_blank">View Project</a>
+  </div>
+</section>
+
+
+<!-- Fun Facts: Two Truths and a Lie -->
+<section class="fun-facts">
+  <!-- New Heading -->
+  <h2>Get to Know Me Better</h2>
+
+  <h3>Two Truths and a Lie</h3>
+  
+  <!-- Score Header -->
+  <div id="score-header">
+      Score (Wins : Losses)
+  </div>
+
+  <!-- Scoreboard -->
+  <div id="score-board">
+      Score: 0 : 0
+  </div>
+
+  <!-- Instructions -->
+  <p>
+      Guess the lie by clicking on one of the options below!
+  </p>
+
+  <!-- Fact Options -->
+  <div id="fact-options">
+      <!-- Options will be dynamically inserted here -->
+  </div>
+
+  <!-- Play Again Button -->
+  <button class="play-again" onclick="generateGame()" style="margin-top: 20px; padding: 10px 20px; font-size: 1rem; background-color: #00798c; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s;">
+      Play Again
+  </button>
+</section>
+
+  <!-- Contact Page -->
+  <section class="contact-section" id="contact">
+      <h2>Contact Me</h2>
+      <form class="contact-form">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+
+          <button type="submit">Send Message</button>
+      </form>
+  </section>
+
+  <footer>
+      <p>&copy; 2024 Jack Seel. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const factsData = [
+        ["I have traveled to 7 countries", true],
+        ["I've been playing piano since I was 4", true],
+        ["I speak 5 languages fluently.", false],
+        ["I ran in the junior olympics", true],
+        ["I developed a mental health app with over 300 downloads.", true],
+        ["I damaged my growth plate", false],
+        ["I am missing a tooth", true],
+        ["I have 3 sisters, I am a twin and the other 2 are also twins", true],
+        ["My cousin is the prince of Egypt", false],
+        ["I am president of a tech club at umich", true],
+        ["I play the harmonica", true],
+        ["I have a fish named trevor", false],
+        ["I like to snowboard", true],
+        ["I am partially color blind", true],
+        ["I am profficient in German", false],
+        ["I have a dog named hamilton", true],
+        ["I am profficient in Italian", true],
+        ["I have sky dived", false],
+        ["I have been to Japan", false],
+        ["My favorite movie Interstellar", false],
+        ["I am profficient in German", false],
+        ["My favorite music genre is classic rock", false],
+
+    ];
+
+    let score = { wins: 0, losses: 0 };
+let guessed = false;
+
+function generateGame() {
+    const truths = factsData.filter(fact => fact[1] === true);
+    const lies = factsData.filter(fact => fact[1] === false);
+    const shuffledTruths = truths.sort(() => Math.random() - 0.5);
+    const shuffledLies = lies.sort(() => Math.random() - 0.5);
+    const selectedFacts = [
+        shuffledTruths[0],
+        shuffledTruths[1],
+        shuffledLies[0]
+    ].sort(() => Math.random() - 0.5);
+
+    const factOptions = document.getElementById('fact-options');
+    factOptions.innerHTML = "";
+    guessed = false; // Reset guess for each round
+
+    selectedFacts.forEach(([fact, isTrue]) => {
+        const factDiv = document.createElement("div");
+        factDiv.textContent = fact;
+        factDiv.className = "fact-option";
+        factDiv.onclick = () => checkLie(factDiv, isTrue);
+        factOptions.appendChild(factDiv);
+    });
+
+    updateScoreDisplay();
+}
+function checkLie(element, isTrue) {
+    if (guessed) return; // Prevent multiple guesses per round
+
+    const factOptions = document.getElementById("fact-options");
+    const messageDiv = document.getElementById("correct-message") || document.createElement("div");
+
+    if (isTrue) {
+        element.classList.add('incorrect');
+        score.losses++;
+        messageDiv.textContent = "Incorrect! The correct lie is highlighted in green.";
+    } else {
+        element.classList.add('correct');
+        score.wins++;
+        messageDiv.textContent = "Correct! You found the lie!";
+    }
+
+    guessed = true; // Prevent further clicks
+    highlightCorrectLie();
+    updateScoreDisplay();
+
+    // Display the message
+    messageDiv.id = "correct-message";
+    messageDiv.style.marginTop = "20px";
+    messageDiv.style.fontSize = "1.1rem";
+    messageDiv.style.fontWeight = "bold";
+    messageDiv.style.color = "#00798c";
+    factOptions.appendChild(messageDiv);
+}
+
+// Highlight only the correct lie
+function highlightCorrectLie() {
+    const factDivs = document.querySelectorAll(".fact-option");
+    factDivs.forEach(option => {
+        if (!option.classList.contains("correct") && !option.classList.contains("incorrect")) {
+            const factText = option.textContent;
+            const isLie = factsData.some(([fact, isTrue]) => fact === factText && !isTrue);
+            if (isLie) {
+                option.classList.add("correct"); // Highlight the correct lie in green
+            }
+        }
+    });
+}
+
+function updateScoreDisplay() {
+    let scoreBoard = document.getElementById("score-board");
+    if (!scoreBoard) {
+        scoreBoard = document.createElement("div");
+        scoreBoard.id = "score-board";
+        scoreBoard.style.marginTop = "20px";
+        scoreBoard.style.fontSize = "1.2rem";
+        scoreBoard.style.fontWeight = "bold";
+        scoreBoard.style.color = "#00798c";
+        document.querySelector(".fun-facts").appendChild(scoreBoard);
+    }
+    scoreBoard.textContent = `Score: ${score.wins} : ${score.losses}`;
+}
+
+window.onload = generateGame;
+
+  </script>
 </body>
 </html>
-

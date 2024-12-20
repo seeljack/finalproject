@@ -1,247 +1,133 @@
-/* navlinks */
-.nav_links{
-  padding-top: 2%;
-  text-align: right;
-  display: flex;
-  justify-content:space-around;
-  list-style-type: none;
-  font-size: 30px; 
-  text-decoration: none;
-}
-
+/* Global Styles */
 body {
-  background-repeat: no-repeat, repeat;
-  background-image: url(../img/Ryan_back.jpg);
-  background-color: #021245;
-  /* background-image: url(../img/background.png), url(../img/background2.png); */
-  /* background-image: url("https://uploads-ssl.webflow.com/5f7c29021be3c410facedbf1/5fd7597fe589fae49c1235ca_bg5.svg"); */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
 }
 
+header {
+  background: #00aaff;
+  color: #fff;
+  padding: 10px 0;
+}
 
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
 
-  .nav_links:nth-child(1){
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-  }
+header nav ul li {
+  margin: 0 15px;
+}
 
+header nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
 
+header nav ul li a:hover {
+  background: #005f7f;
+}
 
-  li.about_me{
-    color: blueviolet;
-  }
+/* Main Content */
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
 
-  .about_me{
-    padding-top: 1%;
-  }
-  
-  .projects{
-    padding-top: 1%;
-  } 
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  color: #0077b6;
+}
 
-  /* Only for nav when home tab isnt the logo */
-  .home{
-    padding-top: 1%;
-  }
+.projects_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
 
-  footer{
-    text-align: center;
-    bottom: 0;
-    color: white;
-  }
+.project {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
 
-  .skip-content{
-    left: -10000px;
-    top: auto;
-    width: 1px;
-    position: absolute;
-    overflow: hidden;
-  }
-  
-  /* this will run when it is tabed */
-  .skip-content:focus{
-    margin-left:  48%;
-    margin-top: 50px;
-    border: rgb(0, 0, 0) 5px solid;
-    padding: 5px;
-    position: static;
-    overflow: visible;
-  }
+.project:hover {
+  transform: translateY(-5px);
+}
 
-  /* my projects text */
-  .top_about{
-    font-size: 50px;
-    animation: about_top 1s ease-out;
-    padding-bottom: 25%;
-    color: #000000;
-    padding-top:5%;
-    font-style: italic;
-    padding-right: 10%;
-    padding-left: 25%;
-  }
-  @keyframes about_top {
-    0%   { 
-    transform: translateY(100%); 		
-    }
-    100% { 
-    transform: translateX(0%); 
-    }
-   }
+.project_images {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
 
+.project_images img {
+  max-width: 80px;
+  border-radius: 5px;
+}
 
-  /* background of the class */
-  .class:nth-child(1){
-    background-color: lightblue;;
-    border:15px black solid;
-  }
-  .class:nth-child(2){
-    background-color: lightgreen;
-    border:15px black solid;
-  }
-  .class:nth-child(3){
-    background-color: lightgrey;
-    border:15px black solid;
-  }
+.project_description {
+  padding: 15px;
+  text-align: center;
+}
 
-  /* For the json affect */
-  .set{
-    position: relative;
-    transform: translateY(150px);
-    opacity: 0;
-    transition: 1s all ease;
-  }
-  
-  .set.active{
-    transform: translateY(0);
-    opacity: 1;
-  }
+.project_description h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #0077b6;
+}
 
+.project_description p {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
 
+.project_description a {
+  display: inline-block;
+  background: #0077b6;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
 
- 
+.project_description a:hover {
+  background: #005f7f;
+}
 
-   /* flex for images */
-  .projects_img .set{
-    display: flex;
-    flex-direction: row;
-  }
-  .set:nth-child(1){
-    display: flex;
-    align-items: flex-end;
-  }
+/* Footer */
+footer {
+  text-align: center;
+  background: #0077b6;
+  color: #fff;
+  padding: 10px 0;
+  margin-top: 20px;
+}
 
-  /* Style for images */
-  .set:nth-child(1) img{
-    padding: 5px;
-    width: 286px;
-    height: 300px;
-    margin-bottom: 15px;
-    margin-right: 250px;
-  }
-
-  .set:nth-child(3) img{
-    padding: 5px;
-    width: 286px;
-    height: 300px;
-    margin-bottom: 15px;
-    margin-right: 250px;
-    margin-top: 150px;
-  }
-
-  .set:nth-child(5) img{
-    padding: 5px;
-    width: 286px;
-    height: 300px;
-    margin-bottom: 15px;
-    margin-right: 250px;
-    margin-top: 150px;
-  }
-  
-
-  /* style for text under images */
-   .sub_text .txt2{
-    font-size: 50px;
-    display: flex;
-    justify-content: center;
-    color: black;
-    font-family:'Courier New', Courier, monospace;
-    font-weight: bold;
-  }
-  
-  .sub_text .txt3{
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-  }
-
-
-  /* making it mobile first */
-  .set img:nth-child(2){
-    display:none;
-  }
-  .set img:nth-child(3){
-    display:none;
-  }
-  .set:nth-child(1){
-    display: flex;
-    justify-content: center;
-    padding-left: 250px;
-    }
-
-
-    @media(min-width:850px){
-      .top_about{
-        font-size: 150px;
-        animation: about_top 1s ease-out;
-        padding-bottom: 25%;
-        color: #000000;
-        padding-top:5%;
-        font-style: italic;
-        padding-right: 10%;
-      }
-    }
-
-
-    /* different media length (2 pics)*/
-  @media (min-width: 1265px) {
-    .set img:nth-child(2){
-      display:unset;
-    }
-    .set:nth-child(1){
-      display: flex;
-      justify-content: flex-start;
-    }
-   
-    }
-
-  /* different media length all 3*/
-  @media (min-width: 1430px) {
-    .set img:nth-child(3){
-      display:unset;
-    }
-    .set:nth-child(1){
-      justify-content: center;
-    }
-  }
-
-
-  /* reduced motion */
-  @media (prefers-reduced-motion) {
-    .set{
-      position: relative;
-      transform: translateY(0px);
-      opacity: 1;
-    }
-    .top_about{
-      font-size: 150px;
-      animation: none;
-      padding-bottom: 25%;
-      color: #30265d;
-      padding-top:5%;
-      font-style: italic;
-      padding-right: 10%;
-    }
-  }
-
-
-  
+footer p {
+  margin: 0;
+}

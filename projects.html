@@ -4,83 +4,89 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Projects</title>
     <link rel="stylesheet" href="css/projects.css">
-    <script src="js/projects.js"></script>
+    <script src="js/projects.js" defer></script>
 </head>
 <body>
 <a class="skip-content" href="#top_about">Skip to main content</a>
 <header>
-  <nav>
-      <ul class="nav_links">
-        <!-- <li class="about_me"> <a href="about_me.html" style="text-decoration: none; color: rgb(0, 0, 0);background-color: #c1f9f8;">About Me</a></li> -->
-        <li class="home"> <a href="index.html" style="text-decoration: none; color: rgb(0, 0, 0);background-color: #c1f9f8;">Home</a></li>
-        <!-- <li class="home"> <a href="index.html"><img src="img/logo.png" alt="Logo with letters JS" width="70" height="60"></a></li> -->
-        <li class="projects"> <a href="projects.html" style="text-decoration: none; color: rgb(0, 0, 0); border: 3px rgb(0, 0, 0) solid; padding: 5px;background-color: #c1f9f8;">Projects</a></li>
-      </ul>
-  </nav>
-  </header>
+    <nav>
+        <ul class="nav_links">
+            <li class="home"> 
+                <a href="index.html" style="text-decoration: none; color: rgb(0, 0, 0); background-color: #c1f9f8;">Home</a>
+            </li>
+            <li class="projects"> 
+                <a href="projects.html" style="text-decoration: none; color: rgb(0, 0, 0); border: 3px solid rgb(0, 0, 0); padding: 5px; background-color: #c1f9f8;">Projects</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
 <main>
-<h1 class="top_about" tabindex="0" id="top_about"> My Projects</h1>
-<div class="projects_img">
-  <div class="class">
-    <div class="set"tabindex="0">
-      <img style="padding-right: 3%; padding-top: 1.5%;"  src="img/Projects/Hblue2.png" alt="Healing Blue Statistics about Depression(Part 2)">
-      <img style="padding-right: 4%;" src="img/Projects/HealingBlue1.png" alt="Healing Blue Logo">
-      <img src="img/Projects/Hb3.png" alt="Healing Blue App Prototype">
+    <h1 class="top_about" tabindex="0" id="top_about">My Projects</h1>
+    <div class="projects_container">
+
+        <!-- Healing Blue Project -->
+        <section class="project">
+            <div class="project_images" tabindex="0">
+                <img src="img/Projects/Hblue2.png" alt="Healing Blue Statistics about Depression" style="padding-right: 3%; padding-top: 1.5%;">
+                <img src="img/Projects/HealingBlue1.png" alt="Healing Blue Logo" style="padding-right: 4%;">
+                <img src="img/Projects/Hb3.png" alt="Healing Blue App Prototype">
+            </div>
+            <div class="project_description" tabindex="0">
+                <h2>Healing Blue</h2>
+                <p>I led the development of Healing Blue, an innovative app enhancing access to mental health resources for faculty, staff, and students at the University of Michigan. I worked on the front-end, back-end, and data analytics components, collaborating closely with the design team. The app is now available on the App Store for iOS!</p>
+                <a href="https://apps.apple.com/us/app/healing-blue/id6505079646" target="_blank">Link to Healing Blue</a>
+            </div>
+        </section>
+
+        <!-- Star Mirror Project -->
+        <section class="project">
+            <div class="project_images" tabindex="0">
+                <img src="img/Projects/Hblue2.png" alt="Healing Blue Statistics about Depression" style="padding-right: 3%; padding-top: 1.5%;">
+                <img src="img/Projects/HealingBlue1.png" alt="Healing Blue Logo" style="padding-right: 4%;">
+                <img src="img/Projects/Hb3.png" alt="Healing Blue App Prototype">
+            </div>
+            <div class="project_description" tabindex="0">
+                <h2>Star Mirror - Celebrity Look-Alike Finder</h2>
+                <p>Star Mirror is an exciting tool that uses facial recognition technology to find your celebrity look-alike. Explore the fun and surprising matches!</p>
+                <a href="starmirror.html">Link to Star Mirror</a>
+            </div>
+        </section>
+
+        <!-- GoDono Project -->
+        <section class="project">
+            <div class="project_images" tabindex="0">
+                <img src="img/Projects/GoDono.png" alt="GoDono Logo" style="padding-left: 6%;">
+                <img src="img/Projects/GoDono_Figma.png" alt="GoDono App Design">
+                <img src="img/Projects/Gleaners.png" alt="Gleaners Food Bank">
+            </div>
+            <div class="project_description" tabindex="0">
+                <h2>GoDono</h2>
+                <p>My team and I designed the prototype for GoDono, leading us to secure $20,000 in funding. GoDono is an LLC that connects users looking for community service with those donating goods.</p>
+            </div>
+        </section>
+
+        <!-- Other Projects -->
+        <section class="project">
+            <div class="project_images" tabindex="0">
+                <a href="../finalproject/templates/celebrity.html">
+                    <img src="img/Projects/michordle.png" alt="Michordle Project">
+                    <p style="text-align: center;">Michordle</p>
+                </a>
+            </div>
+            <div class="project_description" tabindex="0">
+                <h2>Other Projects</h2>
+                <p>Explore more of my projects on GitHub. While many are private due to course requirements, notable examples include an Instagram clone, Google Search Engine, Healing Blue code, Euchre, and a Traveling Salesman-inspired Among Us game.</p>
+                <a href="https://github.com/" target="_blank">Link to GitHub</a>
+            </div>
+        </section>
     </div>
-    <div class="sub_text"tabindex="0">
-      <p class="txt2"> <a style="text-decoration-color: blue">Healing Blue</a></p>
-      <p class="txt3"> I am in charge of developing Healing Blue, an innovative app designed to enhance access to mental health resources 
-        for faculty, staff, and students at the University of Michigan. My responsibilities included developing both the front-end, back-end, and data analytics components of the application, as well as 
-        collaborating closely with the design team. This app is now on the app store (for ios)! Search Healing Blue!
-      </p>
-    </div>
-  </div>
-  <div class="class">
-    <div class="set"tabindex="0">
-      <img style="padding-left: 6%;" src="img/Projects/GoDono.png" alt="GoDono Logo">
-      <img src="img/Projects/GoDono_Figma.png" alt="App Design for GoDono">
-      <img src="img/Projects/Gleaners.png" alt="Gleanders food bank">
-    </div>
-   <div class="sub_text"tabindex="0">
-      <p class="txt2"> <a style="text-decoration-color: green">GoDono</a></p>
-     <p class="txt3">    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; My team and I designed the prototype for the GoDono app, leading to us raising $20,000 in funding. GoDono is LLC that connects users looking for community service to users looking to donate goods. </p>
-    </div>
-  </div>
-  <div class="class">
-    <div class="set"tabindex="0">     
-      <!-- <a href="the_projects/lottery.html"> -->
-        <!-- <div>
-          <img src="/Users/jackseel/Documents/Documents/UMSI339/finalproject/img/Projects/insta.png" alt="Instagram Logo " style="width: 150px; height: auto; padding-left: 27%;">
-          <p style="padding-left: 43%;" class="imgtxt">Insta485</p>
-          <p style="padding-left: 5%;" class="">Made an Instagram clone using RESTful api and SQL</p>
-        </div> -->
-      <!-- </a> -->
-      <!-- <div>
-        <img src="/Users/jackseel/Documents/Documents/UMSI339/finalproject/img/Projects/insta.png" alt="Instagram Logo " style="width: 150px; height: auto; padding-left: 27%;">
-        <p style="padding-left: 43%;" class="imgtxt">Insta485</p>
-        <p style="padding-left: 5%;" class="">Made an Instagram clone using RESTful api and SQL</p>
-      </div> -->
-      <!-- <a href="../finalproject/the_projects/wordle.html">
-        <img src="img/Projects/michordle.png" alt="Artificial Intelligence">
-        <p  style="padding-left: 20%;" class="imgtxt">Michordle</p>
-      </a> -->
-      <!-- <a href="../finalproject/the_projects/wsb.html">
-        <img src="img/Projects/wsb.png" alt="Market with stocks going up and down">
-        <p  style="padding-left: 8%;" class="imgtxt">Wall Street Bets Stock Simulator</p>
-      </a> -->
-   </div>
-    <div class="sub_text"tabindex="0">
-      <p class="txt2"> <a style="text-decoration-color: grey"> Other Projects</a></p> 
-      <p class="txt3"> Here is a link to my github which has some of my class projects. Unfortunately most of them are required to be private. They include (but aren't limited to) Instagram clone, Google Search Engine, Healing Blue Code, Euchre and Traveling Salesman Person Among Us Game Enjoy! </p> 
-      <a href="https://github.com/" style="padding-left: 47%;" > Link to Github </a>
-      </p>
-    </div>
-  </div>
-</div>
 </main>
-<!-- <footer>
-  Est. Birmingham MI
-</footer> -->
+
+<footer>
+    <p>Est. Birmingham, MI</p>
+</footer>
 </body>
+</html>
