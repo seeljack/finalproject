@@ -42,6 +42,16 @@ header {
   color: inherit;
 }
 
+header h1 a {
+  text-decoration: none; /* Removes underline */
+  color: white; /* Ensures the text is white */
+}
+
+header h1 a:hover {
+  text-decoration: none; /* Keeps it from underlining on hover */
+  color: #ddd; /* Optional: Slightly lighter color on hover */
+}
+
 header h1 {
   font-size: 2rem;
 }
