@@ -7,35 +7,36 @@ body {
 }
 
 header {
-    background-color: #c1f9f8;
-    padding: 15px 20px;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
     display: flex;
-}
-
-nav ul li {
-    margin-right: 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-    padding: 5px 10px;
-    border: 3px solid #000;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
     background-color: #003554;
-    transition: all 0.3s;
-}
-
-nav ul li a:hover {
-    background-color: #000;
     color: #fff;
-}
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .name a {
+    text-decoration: none; /* Removes underline */
+    color: white;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #ffb703;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #f4a261;
+  }
 
 .container {
     max-width: 1200px;
